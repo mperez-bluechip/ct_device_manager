@@ -1,0 +1,18 @@
+{
+  "name": "oxygenTheme",
+  "version": "0.0.1",
+  "description": "Fire systems device editor",
+  "main": "editor.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mperez-bluechip/ct_device_manager.git"
+  },
+  "author": "Manny Perez",
+  "devDependencies": {
+    "asynquence": "~0.10.0",
+    "asynquence-contrib": "~0.28.0",
+    "minimist": "~1.2.0",
+    "node-static": "~0.7.9",
+    "socket.io": "^1.7.3"
+  }
+}
