@@ -8,3 +8,5 @@ CMS Toolbox for editing fire and security devices
 * Added css and js directories with css rules and page layouts to editor page
 * Created device staging and added panel with additional css rules
 * Created a database for Contechnical toolbox with relational tables of nacs and panels
+* Modified editor.js to require npm packages socket.io, asynquence, asynquence-contrib, 
+  and node_modules dev dependecies or order to populate html with json data

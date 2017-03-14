@@ -4,6 +4,7 @@
   <title>Contechnical Device Editor</title>
   <link rel="stylesheet" type="text/css" href="css/editor.css"</head>
   <link href="https://fonts.googleapis.com/css?family=Cabin|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <body>
 <header>
 
@@ -14,8 +15,14 @@
 
 <div id="main-content">
   &nbsp;
-  <section id="device">
-    &nbsp;
+  <section id="devices">
+    <i class="material-icons">search</i>
+  <form action="#">
+    <input class="fa fa-search" type="search" name="devices" onkeypress="search(event)"></input>
+  </form>
+    <ul>
+      <li></li>
+    </ul>
   </section>
   <aside id="to-add">
     &nbsp;
@@ -27,8 +34,15 @@
 </div>
 
 <!-- end main content -->
+<script src="/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+function search(s){
+      if(s.keyCode === 13){
+          s.preventDefault();
 
-
-
+      }
+  }
+</script>
 </body>
 </html>

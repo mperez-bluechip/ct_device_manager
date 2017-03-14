@@ -11,6 +11,7 @@
   "devDependencies": {
     "asynquence": "~0.10.0",
     "asynquence-contrib": "~0.28.0",
+    "gulp-searchy": "^1.0.1",
     "minimist": "~1.2.0",
     "node-static": "~0.7.9",
     "socket.io": "^1.7.3"

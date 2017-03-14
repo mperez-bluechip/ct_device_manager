@@ -1,0 +1,15 @@
+{
+        "devices":
+        {
+                "nacs":
+                {
+                  "speakerstrobes":
+                        {
+                          "manufacturer": "Potter",
+                          "ss_part_no":"PKR",
+                          "description":"notification",
+                          "type":"normal decibel rating"
+                        }
+                }
+        }
+}

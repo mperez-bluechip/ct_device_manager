@@ -27,7 +27,7 @@ div#main-content{
 
 }
 
-section#device{
+section#devices{
   width: 19.7%;
   height: 95%;
   border-right: 5px #000 solid;
@@ -52,4 +52,8 @@ bottom: 5px;
 height: 46%;
 right: 0px;
 width: 79.9%;
+}
+
+li{
+  list-style: none;
 }
