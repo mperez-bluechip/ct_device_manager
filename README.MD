@@ -1,6 +1,6 @@
 # Contechnical Device Editor
 
-CMS platform for editing fire systems devices
+CMS Toolbox for editing fire and security devices
 
 * Setup with nodeJS package.json node_modules for socket.io, minimist,
   node-static, and asynquence modules. Added editor.html and editor.js
