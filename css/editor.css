@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Open+Sans');
+
+html{
+  height: 100%;
+}
+body{
+  background: rgba(100,100,100,.7);
+  font-family: 'Cabin', sans-serif;
+  height: 100%;
+  border: 5px #000 solid;
+  width: 100%;
+}
+
+h2#titlehead{
+  font-family: 'Cabin', sans-serif;
+  width: 100%;
+  margin: 2% 5%;
+  font-size: 2em;
+}
+
+div#main-content{
+  position: relative;
+  background: rgba(200,200,200,.4);
+  height: 87%;
+  border-top: 1px #000 solid;
+  border-bottom: 1px #000 solid;
+
+}
+
+section#device{
+  width: 20%;
+  height: 95%;
+  border-right: 1px #000 solid;
+}
+
+span#copyright{
+  font-size: .5em;
+}
+aside#to-add{
+position: absolute;
+background: rgba(150,150,200,.8);
+border-bottom: 5px #000 solid;
+top: 0;
+height: 53%;
+right: 0px;
+width: 79.9%;
+}
+aside#added{
+position: absolute;
+background: rgba(150,200,150,.8);
+bottom: 5px;
+height: 46%;
+right: 0px;
+width: 79.9%;
+}
