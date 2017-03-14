@@ -32,23 +32,32 @@ var
 
 require("asynquence-contrib");
 
+// configure socket.io
+io.on("configure",function(){
+	io.enable("browser client minification"); // send minified client
+	io.enable("browser client etag"); // apply etag caching logic based on version number
+	io.set("log level", 1); // reduce logging
+	io.set("transports", [
+		"websocket",
+		"xhr-polling",
+		"jsonp-polling"
+	]);
+});
+
 httpserv.listen(port, host);
 
 
-
 io.on('connection', function(socket) {
-		clearInterval(intv);
-    console.log('Client connected.');
+
 
     socket.on('disconnect', function() {
-        console.log('Client disconnected.');
+        console.log('Disconnected.');
     });
 
-		socket.on("typeit",function(msg){
-			socket.broadcast.emit("messages", msg);
-		});
+		function getDevice(dev) {
+		io.sockets.emit("broadcast",dev);
+	}
 
-		var intv = setInterval(function(){
-			socket.emit("hello", Math.random());
-		},1000);
+	socket.on("dev",getDevice);
+
 });

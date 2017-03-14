@@ -18,11 +18,9 @@
   <section id="devices">
     <i class="material-icons">search</i>
   <form action="#">
-    <input class="fa fa-search" type="search" name="devices" onkeypress="search(event)"></input>
+    <input id="typing" class="fa fa-search" type="search" name="devices" onkeypress="search(event)"></input>
   </form>
-    <ul>
-      <li></li>
-    </ul>
+    <p id="staging"></p>
   </section>
   <aside id="to-add">
     &nbsp;
@@ -37,12 +35,33 @@
 <script src="/jquery.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-function search(s){
-      if(s.keyCode === 13){
-          s.preventDefault();
 
-      }
+function staging(dev) {
+		document.getElementById("staging").innerHTML = dev;
+
+}
+function search(s){
+  if(s.keyCode === 13){
+    // s.preventDefault();
+
+    document.getElementById("typing").addEventListener(
+		"keypress",
+		function(){
+			var inp = document.getElementById("typing");
+			socket.emit("dev",inp.value);
+      inp.value
+
+		},false);
+
+    function broadcast(dev){
+      document.getElementById("staging").innerHTML = document.getElementById("staging").innerHTML + devices + "<br>";
+      alert('broadcast works');
+    }
+
   }
+}
+
+
 </script>
 </body>
 </html>
