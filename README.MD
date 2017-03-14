@@ -7,3 +7,4 @@ CMS Toolbox for editing fire and security devices
 * Setup server connection via editor.js
 * Added css and js directories with css rules and page layouts to editor page
 * Created device staging and added panel with additional css rules
+* Created a database for Contechnical toolbox with relational tables of nacs and panels
