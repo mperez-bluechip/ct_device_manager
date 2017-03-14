@@ -6,3 +6,4 @@ CMS Toolbox for editing fire and security devices
   node-static, and asynquence modules. Added editor.html and editor.js
 * Setup server connection via editor.js
 * Added css and js directories with css rules and page layouts to editor page
+* Created device staging and added panel with additional css rules
