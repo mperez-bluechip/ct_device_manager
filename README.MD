@@ -11,3 +11,5 @@ CMS Toolbox for editing fire and security devices
 * Modified editor.js to require npm packages socket.io, asynquence, asynquence-contrib,
   and node_modules dev dependecies or order to populate html with json data
 * Modified editor.hmtl along with editor.js for enter key function listening events
+* Modified editor.html along with editor.js for enter key function listening on text 
+  box with search function on Enter key events

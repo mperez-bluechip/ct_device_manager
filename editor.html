@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/editor.css"</head>
   <link href="https://fonts.googleapis.com/css?family=Cabin|Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
 <body>
 <header>
 
@@ -14,7 +15,6 @@
 <!-- main content -->
 
 <div id="main-content">
-  &nbsp;
   <section id="devices">
     <i class="material-icons">search</i>
   <form action="#">
@@ -31,36 +31,36 @@
   </aside>
 </div>
 
-<!-- end main content -->
 <script src="/jquery.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+	function hello(msg) {
+		document.getElementById("hello").innerHTML = msg;
+	}
 
-function staging(dev) {
-		document.getElementById("staging").innerHTML = dev;
+	function broadcast(msg) {
+		document.getElementById("staging").innerHTML = document.getElementById("staging").innerHTML + msg + "<br>";
+	}
 
-}
-function search(s){
-  if(s.keyCode === 13){
-    // s.preventDefault();
+	var socket = io.connect("/",{
+		"connect timeout": 2000,
+		"reconnect": false
+	});
 
-    document.getElementById("typing").addEventListener(
+	socket.on("hello",hello);
+	socket.on("broadcast",broadcast);
+
+
+	document.getElementById("typing").addEventListener(
 		"keypress",
-		function(){
+		function(e){
+      // e.preventDefault();
+      if(e.keyCode === 13){
 			var inp = document.getElementById("typing");
-			socket.emit("dev",inp.value);
-      inp.value
-
+			socket.emit("msg",inp.value);
+			inp.value = "";
+      }
 		},false);
-
-    function broadcast(dev){
-      document.getElementById("staging").innerHTML = document.getElementById("staging").innerHTML + devices + "<br>";
-      alert('broadcast works');
-    }
-
-  }
-}
-
 
 </script>
 </body>
