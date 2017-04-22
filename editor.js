@@ -17,7 +17,28 @@ function handleHTTP(req,res) {
 		 req.resume();
 }
 
+// Read and retrieve JSON data
 
+function readFile(jsonFile){
+	return ASQ(function(done){
+		var stream = fs.createReadStream(jsonFile);
+		var contents = require("./json/editor.json");
+		// stream.pipe(fs.createWriteStream(jsonFile+"backup"));
+		stream.on("data", function(chunk){
+			contents += chunk;
+		});
+		stream.on("end", function(){
+			var ctDevs = JSON.parse(body);
+			readFile("devices");
+			console.log(ctDevs.devices);
+		});
+	});
+		stream.on("error", function(err){
+			console.error(error.message);
+		})
+}
+
+// Use socket.io to to retrieve user text input and parse to DOM
 function connection(socket) {
 
 	function disconnect() {
@@ -28,17 +49,10 @@ function connection(socket) {
 		io.sockets.emit("broadcast",msg);
 	}
 
-	function spy(move) {
-		socket.broadcast.emit("spy",move);
-	}
 
 	socket.on("disconnect",disconnect);
 	socket.on("msg",getmsg);
-	socket.on("spy",spy);
 
-	var intv = setInterval(function(){
-		socket.emit("hello",Math.random());
-	},1000);
 }
 
 
@@ -48,7 +62,7 @@ var
 
 	port = 3000,
 	host = "127.0.0.1",
-
+	fs = require("fs");
 	ASQ = require("asynquence"),
 	node_static = require("node-static"),
 	static_files = new node_static.Server(__dirname),
@@ -57,7 +71,6 @@ var
 ;
 
 require("asynquence-contrib");
-
 
 // configure socket.io
 io.on("configure",function(){
@@ -71,61 +84,6 @@ io.on("configure",function(){
 	]);
 });
 
-
 httpserv.listen(port, host);
 
 io.on("connection",connection);
-
-
-
-// io.on('connection', function(socket) {
-//
-// 	function disconnect() {
-// 		console.log("disconnected");
-// 	}
-//
-// 	function getmsg(msg) {
-// 		io.sockets.emit("broadcast",msg);
-// 	}
-//
-// 	function spy(move) {
-// 		socket.broadcast.emit("spy",move);
-// 	}
-//
-// 	socket.on("disconnect",disconnect);
-// 	socket.on("msg",getmsg);
-// 	socket.on("spy",spy);
-//
-// 	var intv = setInterval(function(){
-// 		socket.emit("hello",Math.random());
-// 	},1000);
-//
-// });
-//
-// var
-// 	http = require("http"),
-// 	httpserv = http.createServer(handleHTTP),
-//
-// 	port = 3000,
-// 	host = "127.0.0.1",
-//
-// 	ASQ = require("asynquence"),
-// 	node_static = require("node-static"),
-// 	io = require("socket.io").listen(httpserv)
-// ;
-//
-// require("asynquence-contrib");
-//
-// // configure socket.io
-// io.on("configure",function(){
-// 	io.enable("browser client minification"); // send minified client
-// 	io.enable("browser client etag"); // apply etag caching logic based on version number
-// 	io.set("log level", 1); // reduce logging
-// 	io.set("transports", [
-// 		"websocket",
-// 		"xhr-polling",
-// 		"jsonp-polling"
-// 	]);
-// });
-//
-// httpserv.listen(port, host);
